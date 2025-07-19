@@ -98,14 +98,6 @@ You can test the API endpoints using Postman by sending appropriate requests to:
 
 ---
 
-## Future Enhancements
-
-- Add user role management (admin vs regular users)
-- Implement user profile editing
-- Add password reset via email
-- Enhance frontend UI with Bootstrap or React
-
----
 
 ## License
 
