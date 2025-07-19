@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Register - User Management</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .form-container {
+    background: rgba(255 255 255 / 0.1);
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(118 75 162 / 0.6);
+    width: 360px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+  }
+  input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.25rem;
+    border-radius: 6px;
+    border: none;
+  }
+  button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.75rem;
+    background: white;
+    color: #764ba2;
+    font-weight: 700;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #e6e0f8;
+  }
+  .msg {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+  .error {
+    background: #f56260;
+  }
+  .success {
+    background: #63c76a;
+  }
+  .link {
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    color: white;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="form-container">
+  <h2>Register</h2>
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="msg {{ category }}">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+  <form method="POST" action="{{ url_for('register') }}">
+    <label for="username">Username</label>
+    <input type="text" name="username" id="username" required maxlength="50" />
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required maxlength="100" />
+
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required minlength="6" />
+
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id="first_name" maxlength="50" />
+
+    <label for="last_name">Last Name</label>
+    <input type="text" name="last_name" id="last_name" maxlength="50" />
+
+    <button type="submit">Register</button>
+  </form>
+  <a href="{{ url_for('login') }}" class="link">Already have an account? Login</a>
+</div>
+</body>
+</html>
