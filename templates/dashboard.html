@@ -1,0 +1,58 @@
+dashboard.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dashboard - User Management</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin: 0;
+    min-height: 100vh;
+  }
+  header {
+    background: rgba(255 255 255 / 0.15);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.25);
+  }
+  main {
+    padding: 3rem 2rem;
+    text-align: center;
+  }
+  a.logout-btn {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #764ba2;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  a.logout-btn:hover {
+    background: #e6e0f8;
+  }
+</style>
+</head>
+<body>
+<header>
+  Welcome, {{ username }}!
+</header>
+<main>
+  <p>This is your dashboard. More features coming soon.</p>
+
+  <a href="{{ url_for('logout') }}" class="logout-btn" aria-label="Logout">Logout</a>
+
+  <br /><br />
+
+  <a href="{{ url_for('users') }}" class="logout-btn" aria-label="Admin Panel">🔍 View All Users (Admin)</a>
+</main>
+</body>
+</html>
